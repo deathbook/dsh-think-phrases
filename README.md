@@ -20,7 +20,7 @@
 
 - 统计思维链中的高频短语/单词：
   - `let me`
-  - `we`（只匹配独立单词，不匹配 `we're`、`we'll` 等缩写词）
+  - `we`（匹配表达“我们”的 `we`，包括 `we're`、`we'll`、`we-need`、`pre-we` 等；不匹配 `weird`、`sweet` 等单词里偶然出现的 `we`）
   - `let's`
   - `I'll`（同时统计全写 `I will`）
 - 全部忽略大小写。
@@ -32,7 +32,7 @@
 | 短语 | 正则 |
 | --- | --- |
 | `let me` | `/\blet\s+me\b/gi` |
-| `we` | `/(?<![\p{L}\p{N}\p{M}_-])we(?![\p{L}\p{N}\p{M}_-]|['’‘][\p{L}\p{N}\p{M}_])/giu` （只匹配独立单词，不匹配 `we're`/`we'll`、连字符词、非 ASCII 字母相邻等） |
+| `we` | `/\bwe\b/gi` （匹配表达“我们”的 `we`，含 `we're`/`we'll`/`we-need`/`pre-we`；不匹配 `weird`/`sweet` 等） |
 | `let's` | `/\blet(?:['’]s|s)\b/gi` （含直/弯引号与无引号变体） |
 | `I'll` | `/\bi(?:['’‘]ll|\s+will)\b/gi` （含 `I will` 全写及大小写/直弯引号变体） |
 

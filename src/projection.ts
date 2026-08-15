@@ -30,14 +30,16 @@ export interface PhraseCounts {
 }
 
 /**
- * The phrase table. Case-insensitive. 'we' matches only the standalone word
- * (never inside a larger word or contraction such as "we're"). 'iWill' counts
- * both the contracted "I'll" (straight/curly apostrophes) and the full form
- * "I will", in any casing.
+ * The phrase table. Case-insensitive. 'we' matches the pronoun "we" whenever
+ * it means "we" (our), including standalone "we", contractions like "we're",
+ * and hyphenated/adjacent forms such as "pre-we" or "we-need". It does not
+ * match the accidental letters "we" inside unrelated words like "weird".
+ * 'iWill' counts both the contracted "I'll" (straight/curly apostrophes) and
+ * the full form "I will", in any casing.
  */
 export const PHRASES: readonly { id: keyof PhraseCounts; label: string; re: RegExp }[] = [
   { id: 'letMe', label: 'let me', re: /\blet\s+me\b/gi },
-  { id: 'weNeed', label: 'we', re: /(?<![\p{L}\p{N}\p{M}_-])we(?![\p{L}\p{N}\p{M}_-]|['’‘][\p{L}\p{N}\p{M}_])/giu },
+  { id: 'weNeed', label: 'we', re: /\bwe\b/gi },
   { id: 'lets', label: "let's", re: /\blet(?:['’]s|s)\b/gi },
   { id: 'iWill', label: "I'll", re: /\bi(?:['’‘]ll|\s+will)\b/gi },
 ]

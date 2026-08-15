@@ -1,0 +1,168 @@
+/* Header utilities entry: pill + anchored pull-out panel. The Win32 title
+   row is an app-region drag strip, so this entry opts back out of dragging
+   to stay clickable. */
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  -webkit-app-region: no-drag;
+  font-family: system-ui, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+/* Collapsed summon pill (always visible) */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  padding: 0 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: color-mix(in srgb, #16181d 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #cdd3de;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(125, 211, 252, 0.35);
+}
+
+.pill:active {
+  transform: scale(0.96);
+}
+
+.pillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7dd3fc;
+  box-shadow: 0 0 8px rgba(125, 211, 252, 0.7);
+}
+
+.pillValue {
+  font-weight: 600;
+  color: #e8eaf0;
+}
+
+.pillChevron {
+  font-size: 10px;
+  color: #8a93a5;
+}
+
+/* Pull-out panel */
+.panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 60;
+  width: 236px;
+  padding: 12px 14px 10px;
+  border-radius: 14px;
+  background: color-mix(in srgb, #16181d 96%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #e8eaf0;
+  animation: thinkPhrasesIn 0.16s ease-out;
+}
+
+@keyframes thinkPhrasesIn {
+  from { opacity: 0; transform: translateY(-5px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.panelHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.panelTitle {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.panelSub {
+  font-size: 10px;
+  color: #8a93a5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.rowLabel {
+  flex: none;
+  width: 56px;
+  color: #aeb6c4;
+  font-variant-numeric: tabular-nums;
+}
+
+.rowBar {
+  flex: 1 1 auto;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.rowBarFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #7dd3fc);
+  box-shadow: 0 0 10px rgba(125, 211, 252, 0.45);
+  transition: width 0.25s ease;
+}
+
+.rowCount {
+  flex: none;
+  width: 30px;
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #7dd3fc;
+}
+
+.panelFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+}
+
+.footerLabel {
+  color: #aeb6c4;
+}
+
+.totalValue {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #e8eaf0;
+}

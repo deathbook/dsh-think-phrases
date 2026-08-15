@@ -1,0 +1,4 @@
+# dsh bundle patch: inserts this plugin into the profile roster.
+- insert:
+    - id: think-phrases
+      name: 'dsh-think-phrases'

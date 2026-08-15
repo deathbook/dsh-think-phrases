@@ -5,7 +5,7 @@
 🔗 GitHub：<https://github.com/deathbook/dsh-think-phrases>
 
 右上角思维链短语统计插件：统计当前会话所有思维链（reasoning blocks）中
-`let me` / `we` / `let's` / `I'll` 的出现次数。
+`let me` / `we` / `let's` / `I'll` 的出现次数，便于快速查看当前对话的Deepseek-V4-Pro-0813模型是否进入灰测思维链。
 
 适用于 DeepSeek Harness（dsh）插件体系，采用双半边架构：
 

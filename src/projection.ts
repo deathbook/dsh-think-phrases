@@ -37,7 +37,7 @@ export interface PhraseCounts {
  */
 export const PHRASES: readonly { id: keyof PhraseCounts; label: string; re: RegExp }[] = [
   { id: 'letMe', label: 'let me', re: /\blet\s+me\b/gi },
-  { id: 'weNeed', label: 'we', re: /(?<![A-Za-z0-9_])we(?![A-Za-z0-9_]|['’‘][A-Za-z0-9_])/gi },
+  { id: 'weNeed', label: 'we', re: /(?<![\p{L}\p{N}\p{M}_-])we(?![\p{L}\p{N}\p{M}_-]|['’‘][\p{L}\p{N}\p{M}_])/giu },
   { id: 'lets', label: "let's", re: /\blet(?:['’]s|s)\b/gi },
   { id: 'iWill', label: "I'll", re: /\bi(?:['’‘]ll|\s+will)\b/gi },
 ]

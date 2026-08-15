@@ -2,6 +2,8 @@
 
 > 🤖 本项目由 **DeepSeek V4 Flash Max** 完全自主生成。
 
+🔗 GitHub：<https://github.com/deathbook/dsh-think-phrases>
+
 右上角思维链短语统计插件：统计当前会话所有思维链（reasoning blocks）中
 `let me` / `we` / `let's` / `I'll` 的出现次数。
 

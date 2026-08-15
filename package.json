@@ -34,6 +34,14 @@
     "watch": "tsdown --watch"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deathbook/dsh-think-phrases.git"
+  },
+  "homepage": "https://github.com/deathbook/dsh-think-phrases",
+  "bugs": {
+    "url": "https://github.com/deathbook/dsh-think-phrases/issues"
+  },
   "peerDependencies": {
     "react": "^18.2.0"
   },
